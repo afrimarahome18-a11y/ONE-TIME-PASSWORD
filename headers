@@ -1,0 +1,9 @@
+<header>
+  <img src="images/logo.png" alt="OTP Logo" id="logo">
+  <h1>ONE TIME PASSWORD (OTP)</h1>
+  <nav>
+    <a href="signup.html">Sign Up</a>
+    <a href="login.html">Login</a>
+    <a href="artist.html">Request to Sign</a>
+  </nav>
+</header>
