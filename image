@@ -1,0 +1,7 @@
+section {
+    padding: 100px 50px;
+    text-align: center;
+    background: url('images/hero.jpg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+}
