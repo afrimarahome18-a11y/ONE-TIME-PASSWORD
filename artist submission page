@@ -1,0 +1,22 @@
+<h2>Request to be Signed</h2>
+<form id="artistForm" enctype="multipart/form-data">
+  <input type="text" name="artistName" placeholder="Artist Name" required />
+  <input type="text" name="genre" placeholder="Genre" required />
+  <textarea name="bio" placeholder="Short Bio"></textarea>
+  <input type="url" name="musicLink" placeholder="Link to Music" required />
+  <input type="file" name="musicFile" />
+  <button type="submit">Submit Request</button>
+</form>
+
+<script>
+document.getElementById('artistForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const res = await fetch('/api/artist', {
+    method: 'POST',
+    body: formData
+  });
+  const result = await res.json();
+  alert(result.message);
+});
+</script>
