@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTP Music Record Label</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>ONE TIME PASSWORD (OTP)</h1>
+  <nav>
+    <a href="/signup.html">Sign Up</a>
+    <a href="/login.html">Login</a>
+    <a href="/artist.html">Request to Sign</a>
+  </nav>
+</header>
+
+<section>
+  <h2>Welcome to OTP</h2>
+  <p>Discover the freshest talent and join the music revolution!</p>
+</section>
+
+<footer>
+  <p>© 2025 OTP Music Record Label</p>
+</footer>
+</body>
+</html>
