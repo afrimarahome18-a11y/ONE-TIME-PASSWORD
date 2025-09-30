@@ -1,0 +1,44 @@
+const express = require('express');
+const multer = require('multer');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const app = express();
+app.use(express.json());
+
+mongoose.connect('mongodb://127.0.0.1:27017/otpMusic', {useNewUrlParser:true});
+
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  password: String
+});
+
+const artistSchema = new mongoose.Schema({
+  artistName: String,
+  genre: String,
+  bio: String,
+  musicLink: String,
+  musicFile: String
+});
+
+const User = mongoose.model('User', userSchema);
+const Artist = mongoose.model('Artist', artistSchema);
+
+// Sign Up
+app.post('/api/signup', async (req, res) => {
+  const {name, email, password} = req.body;
+  const hashed = await bcrypt.hash(password, 10);
+  await User.create({name, email, password: hashed});
+  res.json({message: "Account created!"});
+});
+
+// Artist Submission
+const upload = multer({dest: 'uploads/'});
+app.post('/api/artist', upload.single('musicFile'), async (req, res) => {
+  const {artistName, genre, bio, musicLink} = req.body;
+  const musicFile = req.file ? req.file.path : '';
+  await Artist.create({artistName, genre, bio, musicLink, musicFile});
+  res.json({message: "Request submitted successfully!"});
+});
+
+app.listen(3000, () => console.log("Server running on http://localhost:3000"));
